@@ -1,5 +1,6 @@
 # Value Objects
 [![Build Status](https://travis-ci.org/danitome24/php-valueobject.svg?branch=master)](https://travis-ci.org/danitome24/php-valueobject)
+[![Coverage Status](https://coveralls.io/repos/github/danitome24/php-valueobject/badge.svg?branch=master)](https://coveralls.io/github/danitome24/php-valueobject?branch=master)
 
 Simple project with some Value objects that I use on my personal projects.
 
