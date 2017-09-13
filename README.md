@@ -1,4 +1,5 @@
 # Value Objects
+[![Build Status](https://travis-ci.org/danitome24/php-valueobject.svg?branch=master)](https://travis-ci.org/danitome24/php-valueobject)
 
 Simple project with some Value objects that I use on my personal projects.
 
@@ -45,4 +46,4 @@ php vendor/bin/phpunit
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
