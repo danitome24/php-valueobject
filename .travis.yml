@@ -15,6 +15,6 @@ after_script:
   - php vendor/bin/coveralls -v
 
 notifications:
-  email: false
+  email:
     on_failure: always
     on_success: never
