@@ -10,63 +10,46 @@ namespace PhpValueObject\Person;
 use PhpValueObject\Person\Exception\WeightNotValidException;
 use PhpValueObject\ValueObject;
 
-final class Weight implements ValueObject
+abstract class Weight implements ValueObject
 {
-    const MIN_KG = 10;
-    const MAX_KG = 200;
 
     /**
      * Weight in kg
      *
      * @var float
      */
-    private $weight;
+    protected $weight;
 
     /**
      * Weight constructor.
      * @param float $weight
      * @throws \PhpValueObject\Person\Exception\WeightNotValidException
      */
-    private function __construct(float $weight)
+    protected function __construct(float $weight)
     {
-        $this->changeWeight($weight);
+        $this->weight = $weight;
     }
 
     /**
-     * Named constructor
+     * To Kg
      *
-     * @param float $weight
-     * @return Weight
-     * @throws \PhpValueObject\Person\Exception\WeightNotValidException
+     * @return mixed
      */
-    public static function fromKg(float $weight): self
-    {
-        return new static($weight);
-    }
+    abstract public function toKilograms(): Kilograms;
 
     /**
-     * @return float
+     * To pounds
+     *
+     * @return mixed
      */
-    public function inKilograms(): float
-    {
-        return $this->weight;
-    }
+    abstract public function toPounds(): Pounds;
 
     /**
-     * @return float
+     * To grams
+     *
+     * @return mixed
      */
-    public function inGrams(): float
-    {
-        return $this->weight * 1000;
-    }
-
-    /**
-     * @return float
-     */
-    public function inPounds(): float
-    {
-        return $this->weight * 2.2046;
-    }
+    abstract public function toGrams(): Grams;
 
     /**
      * Compare a value object with another one.
@@ -76,19 +59,14 @@ final class Weight implements ValueObject
      */
     public function equals(ValueObject $valueObjectToCompare): bool
     {
-        return ($this->inKilograms() === $valueObjectToCompare->inKilograms());
+        return ($this->weight() === $valueObjectToCompare->weight());
     }
 
     /**
-     * @param float $kg
-     * @throws WeightNotValidException
+     * @return float
      */
-    private function changeWeight(float $kg)
+    public function weight(): float
     {
-        if ($kg < self::MIN_KG || $kg > self::MAX_KG) {
-            throw new WeightNotValidException('Weight ' . $kg . ' is not valid');
-        }
-
-        $this->weight = $kg;
+        return $this->weight;
     }
 }
