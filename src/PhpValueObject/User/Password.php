@@ -54,4 +54,12 @@ final class Password implements ValueObject
     {
         return ($this->pwd() === $valueObjectToCompare->pwd());
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->pwd;
+    }
 }

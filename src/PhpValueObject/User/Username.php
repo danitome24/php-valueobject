@@ -51,6 +51,14 @@ final class Username implements ValueObject
     }
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->username;
+    }
+
+    /**
      * Compare a value object with another one.
      *
      * @param static|ValueObject $valueObjectToCompare
