@@ -38,4 +38,10 @@ class PasswordTest extends TestCase
             [Password::build('somepwd'), Password::build('somepwddif'), false]
         ];
     }
+
+    public function testToStringMagicMethod()
+    {
+        $pwd = Password::build('securestpwd');
+        $this->assertEquals('securestpwd', $pwd);
+    }
 }

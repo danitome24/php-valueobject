@@ -46,4 +46,10 @@ class UsernameTest extends TestCase
             [Username::fromString('dfernandez'), Username::fromString('tests'), false]
         ];
     }
+
+    public function testToStringMagicMethod()
+    {
+        $username = Username::fromString('username');
+        $this->assertEquals('username', $username);
+    }
 }
